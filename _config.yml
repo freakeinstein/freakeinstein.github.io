@@ -11,7 +11,7 @@ theme:
   description: "Probably premitive" # used by search engines
 
   # Header and footer text
-  header_text: 
+  header_text: > <p> Stay hungry, Stay foolish - Steve Jobs </p>
   header_text_feature_image: front.jpg
   footer_text: 
 
