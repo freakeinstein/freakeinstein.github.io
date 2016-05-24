@@ -1,0 +1,22 @@
+# Permalinks
+#
+# Use of `relative_permalinks` ensures post links from the index work properly.
+permalink:           pretty
+relative_permalinks: true
+
+# Setup
+title:               Freakeinstein
+tagline:             'probably premitive'
+description:         'Sharepoint for some simple thoughts'
+url:                 http://freakeinstein.github.io
+baseurl:             ''
+paginate:            5
+
+# About/contact
+author:
+  name:              Jubin Jose
+  url:               https://fb.com/idiappam
+  email:             jubin@krutt.org
+
+# Custom vars
+version:             1.0.0
