@@ -6,7 +6,8 @@ title: I struggled a lot to get started this first article as a minimalist. How 
 Writing a blog was a painful task for me. I've tried different tools and services available, as my friends and other writers suggested. It was painful to write and publish articles, but its even more complicated to maintain the text content on the go. So, after a long break I've decided to give it a **try** *(It may take another full page to explain why now)*. This time, I wanted to throw myself into analysis on what tools and writing environments I actually wanted.
 
 
-##Lets go through the curation process
+Lets go through the curation process
+--
 
 
 *  **I hate writing in custom editors, got no time -**
@@ -25,7 +26,8 @@ Writing a blog was a painful task for me. I've tried different tools and service
 > ## I'm Just stopping here. You know the scenario, if you feel the same way.  
   
   
-##Solution : How this blog works
+Solution : How this blog works
+--
 
 
 *  **Each article I write is a markdown file -**
