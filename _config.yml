@@ -6,13 +6,13 @@ url: "http://freakeinstein.github.io" # the base hostname & protocol for your si
 theme:
   # Meta
   title: Freakeinstein
-  avatar: https://cloud.githubusercontent.com/assets/19545678/15496491/17b59400-21b3-11e6-8368-4e17f0e7f88f.png
+  avatar: img/einstein.png
   gravatar: # Email MD5 hash
   description: "Probably premitive" # used by search engines
 
   # Header and footer text
   header_text: 
-  header_text_feature_image: https://cloud.githubusercontent.com/assets/19545678/15499094/fe614050-21bf-11e6-834d-4f42f80a4d0f.jpg
+  header_text_feature_image: img/front.jpg
   footer_text: 
 
   # Icons
