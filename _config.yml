@@ -1,21 +1,26 @@
+# Dependencies
+markdown:         redcarpet
+highlighter:      pygments
+
 # Permalinks
-#
-# Use of `relative_permalinks` ensures post links from the index work properly.
-permalink:           pretty
+permalink:        pretty
+relative_permalinks: true
 
 # Setup
-title:               Freakeinstein
-tagline:             'probably premitive'
-description:         'Sharepoint for some simple thoughts'
-url:                 http://freakeinstein.github.io
-baseurl:             ''
-paginate:            5
+title:            Hyde
+tagline:          'A Jekyll theme'
+description:      'A brazen two-column <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
+url:              http://hyde.getpoole.com
+baseurl:          /
 
-# About/contact
 author:
-  name:              Jubin Jose
-  url:               https://fb.com/idiappam
-  email:             jubin@krutt.org
+  name:           'Mark Otto'
+  url:            https://twitter.com/mdo
+
+paginate:         5
 
 # Custom vars
-version:             1.0.0
+version:          2.1.0
+
+github:
+  repo:           https://github.com/poole/hyde
