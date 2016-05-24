@@ -12,8 +12,8 @@ theme:
 
   # Header and footer text
   header_text: >
-     <p>Stay hungry  Stay foolish</p>
-  header_text_feature_image: front.jpg
+     <p>Stay hungry,  Stay foolish</p>
+  header_text_feature_image: img/front.jpg
   footer_text: >
     <p> (c) 2016 - Jubin Jose. </p> 
 
