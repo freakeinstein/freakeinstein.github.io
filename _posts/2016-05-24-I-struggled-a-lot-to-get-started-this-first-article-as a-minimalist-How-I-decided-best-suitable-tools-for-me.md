@@ -6,6 +6,8 @@ title: I struggled a lot to get started this first article as a minimalist. How 
 Writing a blog was a painful task for me. I've tried different tools and services available, as my friends and other writers suggested. It was painful to write and publish articles, but its even more complicated to maintain the text content on the go. So, after a long break I've decided to give it a **try** *(It may take another full page to explain why now)*. This time, I wanted to throw myself into analysis on what tools and writing environments I actually wanted.
 
 ###Lets go through the curation process###
+
+
 *  **I hate writing in custom editors, got no time -**
 
   different blogging services like wordpress, blogger, tumblr etc.. *(I've tried and tired)* have their own custom editors, if you are a person hate writing in them, using text decorations, smilies, dragging stuff around, scaling images, playin around with custom HTML. Oh.. Its a bit hairy. It kills your time and focus. We've got a short life. **Being straight : I need a tool to write faster, and just to focus on whatever I type in**.
@@ -22,6 +24,8 @@ Writing a blog was a painful task for me. I've tried different tools and service
 > ### I'm Just stopping here. You know the scenario, if you feel the same way.  
   
 ###Solution : How this blog works
+
+
 *  **Each article I write is a markdown file -**
 
   a markdown file is very near to a simple text with some special characters determines basic text styling. an `.md` extension is given to these markdown files. **This is very useful for those who writes a lot and hate text selection rule to apply an action**. You apply rules as you type. More on the philosophy and Syntax can be accessed [right here from the maker](http://daringfireball.net/projects/markdown/syntax). Its **super fast**.
