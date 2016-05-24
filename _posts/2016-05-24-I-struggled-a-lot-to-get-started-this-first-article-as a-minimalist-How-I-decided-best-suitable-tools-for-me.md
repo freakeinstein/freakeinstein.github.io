@@ -23,7 +23,7 @@ Lets go through the curation process
   this is very important for me, and you may argue by saying, "blogging services got simple mechanisms to do this". I've used different free blogging platforms, and they all have their own content management systems. That's good. But, I don't need that much, that's the truth. All I needed is a minimal format, which is very near to the simple text. Think about an article, which is very lightweight and portable *(taking printouts, converting into pdf or epub, downloading for later references, RSS or similar reading)*, even the writer could stack them as backup in their own PC as very tiny files, or let others use it. **As a student, I've struggeled a lot to back great articles as a reference page**.
   
 > These are the top three problems I face while writing and reading blogs, there are many other as well..
-> ## I'm Just stopping here. You know the scenario, if you feel the same way.  
+> **I'm Just stopping here. You know the scenario, if you feel the same way.**
   
   
 Solution : How this blog works
