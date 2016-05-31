@@ -55,7 +55,7 @@ we've got some Malayalam words from layer 1 sorted by their confidence to match 
 
 ![architecture](https://cloud.githubusercontent.com/assets/19545678/15669805/c57e9532-273f-11e6-8bec-57665249a832.jpg)
 
-- the approach we use here is **n-gram** model. We have already trained the **n-gram** model over a big set *(billions)* of **different** Malayalam words and  will generate ranks or probability values for each **n-gram** combinations.
+- the approach we use here is [n-gram](https://en.wikipedia.org/wiki/N-gram) model. We have already trained the **n-gram** model over a big set *(billions)* of **different** Malayalam words and  will generate ranks or probability values for each **n-gram** combinations.
 - we will then re-rank our results by mixing these **n-gram** probabilities as well. A simple sorting and threasholded elimination could give us a better & confident results.
 
 ## the memory layer
@@ -68,9 +68,9 @@ After passing an input through these three layers, we're placing it to the outsi
 
 **NOTES:**
 
-- **Layer 1** : we could use a '**trie** datastructure' or a 'python **dictionary**'. I've mentioned only manual method for rule generation, we could make use of decition trees to automatically adapt and modify the rules, training data should be designed to cover all the possibilities in this case. This layer can also be replaced with other existing '**G2P** methodologies' like using '**Weighted Finite State Transducers**' or '**Recurrent Neural Networks**' *( I'm trying to extend my mini project as my major using RNNs, just started working on it, let me se if I could blog events alongside with it )*.
+- **Layer 1** : we could use a '[trie](https://www.youtube.com/watch?v=NKr6gWcXkIM) datastructure' or a 'python [dictionary](http://www.tutorialspoint.com/python/python_dictionary.htm)'. I've mentioned only manual method for rule generation, we could make use of decition trees to automatically adapt and modify the rules, training data should be designed to cover all the possibilities in this case. This layer can also be replaced with other existing '**G2P** methodologies' like using '[Weighted Finite State Transducers](https://en.wikipedia.org/wiki/Finite_state_transducer)' or '**Recurrent Neural Networks**' *( I'm trying to extend my mini project as my major using RNNs, just started working on it, let me se if I could blog events alongside with it )*.
 - **Layer 2** : uses an **n-gram** model in my implementation. '**2-grams**' best worked for me. Another yet better alternative is to use '**Recurrent NNs**'.
-- **Layer 3** : implemented with **shortest delete distance** spell checker *( according to developers which is very much faster )* For commercial application, a stemmer is necessory, otherwise your database will be flooded.
+- **Layer 3** : implemented with [symspell](https://github.com/wolfgarbe/symspell) spell checker *( according to developers which is very much faster )* For commercial application, a stemmer is necessory, otherwise your database will be flooded.
 - **Training data** : I've struggled a lot, there's no corpus for malayalam transliteration. So, I've used a rule based automation algorithm to generate test cases, so I needed to enter the english letters as it is produced by the algorithm for testing. *( good news is, for 50+% cases, the system managed to give better results even if the rule is not followed )*.
 - **Major problem** : I works out of the box for very common words, but, for very specific inputs *( whose characters are very uncommon, or insufficient )* system fails in prediction and produces very bad results.
 - **Existing Commercial systems** : 'Google input tools' , 'Varnam free'.
