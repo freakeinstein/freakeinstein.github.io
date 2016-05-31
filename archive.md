@@ -26,4 +26,4 @@ permalink: /archive/
       {% endif %}
     {% endfor %}
   {% elsif page.year %}
-    
+    </ul>
