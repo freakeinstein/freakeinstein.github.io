@@ -4,8 +4,11 @@ title: About
 permalink: /about/
 ---
 
-This blog's maintained by Jubin Jose.
 Dedicated to my father, who taught me, 'the need to gain & share Knowledge'.
+
+##ME
+
+Name is, Jubin Jose
 
 Master of Computer Applications (MCA) student @ [College of Engineering Trivandrum, Kerala](http://www.cet.ac.in).
  
