@@ -6,7 +6,8 @@ permalink: /about/
 
 Dedicated to my father, who taught me, 'the need to gain & share Knowledge'.
 
-##ME
+
+**Me,**
 
 Name is, Jubin Jose
 
