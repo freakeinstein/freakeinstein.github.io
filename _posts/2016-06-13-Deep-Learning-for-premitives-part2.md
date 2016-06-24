@@ -3,10 +3,7 @@ layout: post
 title: Deep Learning for premitives [part 2].
 ---
 
-<h3> 2. from biological neuron to perceptron </h3>
-
-<h4>Biological neurons</h4>
-
+<h4> 2. from biological neuron to perceptron </h4>
 Everything we do as a human is not resulted from simple cell reactions. Human brain is made up of connected neurons, which make us behave as we do.
 
 >The average human brain has about 100 billion neurons (or nerve cells) and many more neuroglia (or glial cells) which serve to support and protect the neurons. Each neuron may be connected to up to 10,000 other neurons, passing signals to each other via as many as 1,000 trillion synaptic connections. 
