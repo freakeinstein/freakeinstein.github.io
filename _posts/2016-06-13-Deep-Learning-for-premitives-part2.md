@@ -14,7 +14,9 @@ Everything we do as a human is not resulted from simple cell reactions. Human br
 From recognising patterns, designing great machines and buildings, creating music, remembering beautiful moments, having feelings and emotions.. yes, whatever we do is maintained by this network, by activating each neurons in it. Each neuron will get activated by another one which have immediate connection to it.
 
 
-Here's a simple model of a neuron. ![a single neuron](https://cloud.githubusercontent.com/assets/19545678/16334957/a4bc6aaa-3a21-11e6-8fc1-aa4a7f48f137.jpg)
+Here's a simple model of a neuron. ![a single neuron](https://cloud.githubusercontent.com/assets/19545678/16334957/a4bc6aaa-3a21-11e6-8fc1-aa4a7f48f137.jpg) [[more info](http://neuroscientist.weebly.com/blog/lesson-2-the-materialistic-mind-your-brains-ingredients)]
+
+
 Working: [ tip: we need those **bolded** information for later use ]
 
 - Dendrites of a single neuron are **connected to the axons of multiple neurons**. When a neuron gets fired, it will produce some chemicals from the terminals of its axons (synapses), so that, the corresponding dendrites of other neurons will get activated. **The strength of these activations may vary**, dependent upon the properties of each dendrite. 
