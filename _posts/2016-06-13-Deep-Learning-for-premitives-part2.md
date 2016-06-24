@@ -3,7 +3,7 @@ layout: post
 title: Deep Learning for premitives [part 2].
 ---
 
-<h4> 2. from biological neuron to perceptron </h4>
+<h3> 2. from biological neuron to perceptron </h3>
 
 <h4>Biological neurons</h4>
 
@@ -18,7 +18,9 @@ Here's a simple model of a neuron. ![a single neuron](https://cloud.githubuserco
 Working: [ tip: we need those **bolded** information for later use ]
 
 - Dendrites of a single neuron are **connected to the axons of multiple neurons**. When a neuron gets fired, it will produce some chemicals from the terminals of its axons (synapses), so that, the corresponding dendrites of other neurons will get activated. **The strength of these activations may vary**, dependent upon the properties of each dendrite. 
+
 - This will generate a potential difference there, simply, a tiny electric pulse. Suppose, we've got multiple activations at the same time (*because its in a network and thus, each neuron is connected to multiple other neurons*). Just like, multiple battery_cells contributes electric pulse to the neuron, **which means pulses got accumulated ( added )**.
+
 - finally, the reciever neuron need to decide something. Neurons are shy, they need enough energy to wake up. They may be asking themselves, "Should I get excited? Have I got enough energy?" *electric pulses makes a sleepy neuron very happy and excited !* The only constraint is, **it should exceed some threashold** !
 
 
@@ -27,8 +29,11 @@ Working: [ tip: we need those **bolded** information for later use ]
 In 1943, Warren S. McCulloch and Walter Pitts developed the first conceptual model of an artificial neural network [[paper](http://deeplearning.cs.cmu.edu/pdfs/McCulloch.and.Pitts.pdf)]. The neurons are much slower in their communication speed compaired to modern computers. Even if they are very slow, they produce far better results than any other computers within a time segment. Why this? the answer to this question not only inspired the creation of artificial neural networks but, other fields like distributed computating also. 
 
 - **neurons form a massive, parallel network**, which enables them to perform computation on multiple data at a time instant. That's a big difference, because, even if we have got super fast computers, they process data sequentially. We've limitations in the implementation of distributed and parallel computations. Its not possible to connect processors in parallel beyond a limit, constrained either by the networking mechanisms available today ( *Remember, brain uses chemical fluids to connect, while we use ethernet or optical fiber* ), or by the processor architectures ( *the way it process stuffs* ). Google, NASA and others believe Quantum Computers could solve this problem ( *n Qbits could be in 2^n possible states, simply means, 2^n computations at a time, like firing 2^n neurons* ).
+
 - **each neuron itself is just a contributor**. In other way, we could compare a neuron activity to that of an ant. A single ant could do nothing remarkable, they have their own purpose, to contribute to a collective activity, which does great things. 
+
 - **They are general models**. Any neuron could contribute to any activity, which makes a network general for any purpose. The same network can be used from visual/pattern recognition tasks to keeping memories, just like the visual cortex of an adult could be trained listen to voices, if wanted, and vice versa.
+
 - **and they are highly energy efficient.**
 
 
