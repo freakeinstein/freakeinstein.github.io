@@ -3,7 +3,7 @@ layout: post
 title: Programming in lua [ tutorial ] - ( quick reference ).
 ---
 
-This quick reference that I've created, is based on the book `programming in lua - 3rd edition` [link](https://www.lua.org/pil/).
+This quick reference that I've created for my own reference, is based on the book `programming in lua - 3rd edition` [link](https://www.lua.org/pil/).
 
 Interactive jupyter notebook [here](http://nbviewer.jupyter.org/github/freakeinstein/quick_torch/blob/master/lua%20tutorial.ipynb)
 
