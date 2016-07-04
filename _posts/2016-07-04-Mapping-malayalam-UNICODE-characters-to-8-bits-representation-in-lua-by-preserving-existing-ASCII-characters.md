@@ -13,17 +13,17 @@ Some mapping techniques are already out there, like the `WX mapping` used for in
 
 Recently, I've encountered the same problem where a character mapping is needed.
 
-###Situation:
+<h4>Situation:</h4>
 As part of my academic major project, which deals with current generation Malayalam text data, I realied that almost all web or books uses a mixed approach. Malayalam text, nowadays is not purely malayalam. It will contain both Malayalam and English words to complete a maeningful sentance. Inorder to deal with it, we must consider common English words as well, as part of ordinary Malayalam vocabulary. Sometimes these English words are written using English characters or sometimes written with Malayalam characters.
 
-###Advandages in lua:
+<h4>Advandages in lua:</h4>
 My project is being developed in lua language to avail Torch support. Another remarkable feature of lua which helps me is that, lua string uses `eight bit clean` representation for each characters. We know, a byte (8 bit) could represent `2^8` (256) different data, and ASCII characters require only first `2^7` (128) positions reserved to represent characters. Now, because there's another 128 rooms available, we're very much free to use them.
 
-###Malayalam UNICODE
+<h4>Malayalam UNICODE</h4>
 ![unicode table](https://cloud.githubusercontent.com/assets/19545678/16567892/5f8f96b4-4241-11e6-80d9-42cebdf14b4b.jpg)
 From this table, we can see that, Malayalam character set requires only 128 positions in whole UNICODE. Whoa.. we could easily map them to occupy those 128 rooms available after ASCII reservation.
 
-###Coding
+<h4>Coding</h4>
 Since its very hard to type in these remaining 128 characters using keyboard, we will make use of `lua`'s `string.byte( give_me_a_character )` and `string.char( give_me_a_number )`. everything else is very much easy, just play with `lua`'s `table` datastructure.
 
 Here's a quick evaluation of different `lua chunks` needed for the mapping code: [jupyter notebook](http://nbviewer.jupyter.org/github/freakeinstein/quick_torch/blob/master/character%20mapping%20tests.ipynb).
