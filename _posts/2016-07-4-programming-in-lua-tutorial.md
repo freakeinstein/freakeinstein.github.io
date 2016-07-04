@@ -1,5 +1,9 @@
+---
+layout: post
+title: Programming in lua [ tutorial ] - ( quick reference ).
+---
 
-This quick reference is based on the book `programming in lua - 3rd edition` [link](https://www.lua.org/pil/)
+This quick reference that I've created, is based on the book `programming in lua - 3rd edition` [link](https://www.lua.org/pil/).
 
 
 ```lua
