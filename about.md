@@ -19,7 +19,9 @@ Master of Computer Applications (MCA) student @ [College of Engineering Trivandr
  
 Machine Learning enthusiast.
 
-Read my [CV](https://github.com/freakeinstein/freakeinstein.github.io/files/327786/Jubin.Jose.Resume.EA.pdf)
+Read my [CV](https://github.com/freakeinstein/freakeinstein.github.io/files/327786/Jubin.Jose.Resume.EA.pdf).
+
+Download full blog content / posts as markdown files [here](https://github.com/freakeinstein/freakeinstein.github.io/tree/master/_posts).
 
 ---
  © 2016 created with ♥.
