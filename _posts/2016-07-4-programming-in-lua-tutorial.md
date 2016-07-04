@@ -5,6 +5,8 @@ title: Programming in lua [ tutorial ] - ( quick reference ).
 
 This quick reference that I've created, is based on the book `programming in lua - 3rd edition` [link](https://www.lua.org/pil/).
 
+Interactive jupyter notebook [here](http://nbviewer.jupyter.org/github/freakeinstein/quick_torch/blob/master/lua%20tutorial.ipynb)
+
 
 ```lua
 -- based on lua text book --
@@ -339,7 +341,7 @@ end -- we could write our own iterative function like pairs() --
 
 
 
-** upcoming five chunks related to function calls **
+**upcoming five chunks related to function calls**
 
 
 ```lua
@@ -524,7 +526,7 @@ print(sl,sr)
 
 
 
-** More on functions ** chapter 6
+**More on functions** chapter 6
 
 
 ```lua
