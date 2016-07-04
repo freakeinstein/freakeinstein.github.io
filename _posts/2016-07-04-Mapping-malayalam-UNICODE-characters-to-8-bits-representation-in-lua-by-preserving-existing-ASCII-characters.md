@@ -31,4 +31,4 @@ Here's the final code: [jupyter notebook](http://nbviewer.jupyter.org/github/fre
 
 > Note: Create a Malayalam text file before running the final code: `/data/malayalam_in.txt`.
 > 
-> Indian Script Code for Information Interchange works this way [wikipedia](https://en.wikipedia.org/wiki/Indian_Script_Code_for_Information_Interchange).
+> `Indian Script Code for Information Interchange` works this way [wikipedia](https://en.wikipedia.org/wiki/Indian_Script_Code_for_Information_Interchange).
