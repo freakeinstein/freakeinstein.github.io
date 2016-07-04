@@ -15,7 +15,7 @@ theme:
      <p>Stay hungry,  Stay focused</p>
   header_text_feature_image: img/focused.jpg
   footer_text: >
-    <p> (c) 2016 - Jubin Jose. </p> 
+    <p> © 2016 - Jubin Jose. </p> 
 
   # Icons
   rss: true
