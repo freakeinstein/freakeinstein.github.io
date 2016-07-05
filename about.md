@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-Dedicated to my father, who taught me, 'the need to gain & share Knowledge'.
+Dedicated to my Dad, who taught me, 'the need to gain & share Knowledge'.
 
 
 **Me,**
@@ -24,4 +24,4 @@ Read my [CV](https://github.com/freakeinstein/freakeinstein.github.io/files/3277
 Download full blog content / posts as markdown files [here](https://github.com/freakeinstein/freakeinstein.github.io/tree/master/_posts).
 
 ---
- © 2016 created with ♥.
+ © 2016 created with ♥.    
