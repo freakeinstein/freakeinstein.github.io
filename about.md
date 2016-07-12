@@ -17,7 +17,7 @@ Master of Computer Applications (MCA) student @ [College of Engineering Trivandr
  
 [Programmer + Artist](https://youtu.be/8LdwhOEwMiU?list=PLpRfNIvlwqr895ZBuLEfQ6IISN38W4_Bm).
  
-[Plan B](http://yesitsplanb.tumblr.com) leading member
+[Plan B](http://yesitsplanb.tumblr.com) leading member 
  
 Machine Learning enthusiast.
 
