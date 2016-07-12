@@ -7,7 +7,7 @@ permalink: /about/
 Dedicated to my Dad, who taught me, 'the need to gain & share Knowledge'.
 
 
-**Me,**
+**Me,** 
 
 ![propic](https://cloud.githubusercontent.com/assets/19545678/16712445/33bcefba-46a5-11e6-877d-2a5533cb84eb.jpg)
 
