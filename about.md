@@ -6,6 +6,8 @@ permalink: /about/
 
 Dedicated to my Dad, who taught me, 'the need to gain & share Knowledge'.
 
+Special thanks to Vijesh, who suggested this blog name.
+
 
 **Me,** 
 
