@@ -1,90 +1,80 @@
 ---
 layout: post
-title: Breaking down 'language transliteration' ( phonetic translation ) Project ( LSTM version )
+title: Breaking down 'language transliteration' ( phonetic translation ) Project ( version 1 ).
 ---
 
+As my first academic project, I've chose to develop a self learning English - Malayalam phonetic transliterator, where the end user could type in Malayalam words by their phonetic alternatives through a English keyboard. Although such commercial projects are already available, I've decided to give it a try through my own implementation, as a babystep towards modelling self learning algorithms. The backbone of this project is made up of basic probability theory and operations, with which both decision making and learning mechanisms are functioning. Here's a brief note on how it is done:
 
-[being busy, figures coming soon]
+# Let's breakdown the problem *( Maths not covered )* 
+Starting from an application area for this project, say a facebook chat box, where an average 'malayalee' including me, communicates this way;
 
-Hi, now I'm going to talk about my major project. You may have read my post regarding my mini project, which focused on the same goal of malayalam transliteration. In my previous attempt, I based it purely on basic probability theory. Which applied chain rule to transliterate to malayalam (literally). Now we're going to adapt a state of the art technique which is very popular in this area, which is known as LSTM (Long Short Term Memory). Just before beginning my project, I've did a small research on it and found different papers. I've fallen in love with two simple papers, published one, by Google and the other by Microsoft. No doubt, they have already proven the results. So, my project work is simply an implementation of these papers.
+`Hai da, enthokkeyund vishesham ?`
 
-Whats LSTM? I'm gonna link a page instead explaining it (its a good practice to get rid of redundancy, right?), here it is. Just in simple words LSTMs can be used for Sequence to Sequence translation, like Speech to text (record speech, cut it equally), language to language translation (very recently Google introduced a new update to their translation tools), characters to phonemes, and more.. we're hackers right? You could use any trick, and if you were able to convert anything to sequence, most probably, LSTM's could help you. If you need inspiration on this, get it from andrej karpathy. 
+`Sukam, ninakko ?`
 
-### Our situation:
-Now moving into our situation. Its very simple.
+`kuzhappamilleda.. Entha paripaadi ?`
 
-- create a simple LSTM which recieves an ASCII character from a sequence as an input and predict next character in the sequence. [in a techie way, we need to model and train a LSTM, which recieves a character in a sequence and produces a probability distribution over next possible characters].
+Except for some people *( May be, some girls, not much coding needed :P )*.
 
-- Our model is ready. What about training data? (funny thing is, before creating a model, you shuld gather your training data. I've described the model already, just to simplify the explanation). I'm gonna write that below: 
+req: `10101010101010100010100101010100101`
 
-### Training data:
-I've created a lot of data with examples of mangleesh text and corresponding malayalam transliteration (500000+ pairs). Thanks to SMC community, to create this big set of data, I've used their text corpus for Varnam (a similar project with different approach) and shilpa's python script for transliteration with a tiny modification (random error character introduction). since this is done for demonstration purpose, synthesized data is enough.
+resp: `K`
 
-next steps were the trick part of my training:
+req: `01001001100101010110101010001010101 0101010101001`
 
-- firstly, I wanted to convert UNICODE characters to ASCII characters. Why? get inspired. :)
+resp: `mm..`
 
-- Secondly, I need to decide the sequences and their format for representation.
+req: `0110101010001010101101010101001`
 
-### formating the data for better results:
-For this we should be tricky. We will be giving one character at a time both at the input and output terminals of LSTM (as in the form of onehot encoding to be precice, any encoding can be used). So, how do we create these two sequences? the source and target? OR.., do we wanna setup a single sequene for both of them?? thats the real question we will be asking ourselves later.
+resp: ` (a perfect, period seperated) Ha..Ha..`
 
-Let's consider an example:
-for our problrm, suppose we want to map *malayalam* to [malayalam] 
+So, what's happening within our heads while we read these text? Don't bother about the biological complexities or human psychology, Let's interpret the basic feeling that we get, and it should work. For me, I think, it can be explained with three layers of filtering. The given in the fig. below and they are, **Knowledge**, **Experience** & **Memory** *( call this, an 'Architecture' because some people need architectures so bad )*.
 
-fig1
+![architecture](https://cloud.githubusercontent.com/assets/19545678/15669804/c5735c94-273f-11e6-9967-d1cf3501614d.jpg)
 
-or like this mapping:
+## the knowledge layer
+we need to teach a **kid**, some basic rules so that, he could convert English inputs into some rough Malayalam words, each tagged with their own likelihood *( probability )*.
 
-fig2
+**Module design**
 
-from these examples, we can see that, thare's no one-one correspondance between these two sequences. So, during training, we should try out different approaches. According to the papers I refer, they preffered delayed matching, so that, the network  could pre-see more than one characters just before the prediction starts.
+![knowledge_layer](https://cloud.githubusercontent.com/assets/19545678/15669808/c5b8ce32-273f-11e6-9cd9-170086ee7899.jpg)
 
-fig3
+- First of all, we need to create a **Rules** file manually. Here's the format for each row:
+`eng_chars_1 : mal_char_11 | score_11 - mal_char_12 | score_12 - ...`
 
-In the above figure, the network has seen `ma..` earlier, and it could predict corresponding sequence as `xx[ma]`, (where xx is added for two purposes, first two represents some padded characters to indicate the network that, prediction is delayed by two characters and another two at the end is to match the sequence length of source and destination.
+`...`
 
-A better alternative solution is given below:
+initially, all the score values are reset into a probability value of 1, so choosing a corresponding Malayalam character for an English character combination is equally likely *( this will be varied on each training iteration )*.
 
-fig4
+- to create this rules file, **guidance from a language expert is needed**.
+- next step is to combine these seperate Malayalam chareacters to form some rough words set, with their combined probability.
+why we need these probability values to be combined? because, after each training process, the likelihood of these words increase or decrease our confidence level, based on that we could sort our results.
 
-In the above situation, the network have seen the whole input, just before translation, according to reference papers this one works very well.
+## the experience layer
+we've got some Malayalam words from layer 1 sorted by their confidence to match our input. In most cases, it may not be the actual result we wanted, rather will contain impurities. Some adjacent textts may be unusual or may never occuer. For example, input Malayalam may return some sequence like this: **മ്ലയാളം, മാലയളം, മളയളം, മ്മല്യാലം, മലയാലം**. Here, **'മ്ല'** and **'മ്മല്യാ'** are unusual words with probability of occurence nearly zero. Thus we could eliminate or underrate these words by their sequence pattern properties. This is actually based on our experience in dealing with different malayalam words. 
 
-### My solution:
-I hav'nt used any of the above, actually, upgraded to another solution, as given below.
+![architecture](https://cloud.githubusercontent.com/assets/19545678/15669805/c57e9532-273f-11e6-8bec-57665249a832.jpg)
 
-fig5
+- the approach we use here is [n-gram](https://en.wikipedia.org/wiki/N-gram) model. We have already trained the **n-gram** model over a big set *(billions)* of **different** Malayalam words and  will generate ranks or probability values for each **n-gram** combinations.
+- we will then re-rank our results by mixing these **n-gram** probabilities as well. A simple sorting and threasholded elimination could give us a better & confident results.
 
-Here, I've used the same sequence as the input and output with a single shift. Each step during training, we will give a character from the sequence as the input and the next character from the same sequence as the output. Thus our network will learn itself not only the inner patterns of transliterations but, able to generate sentances as well. This is actually an adaptation of n-gram algorithm from our mini project, which helped a lot in error correction. Remember?
+## the memory layer
+Memory plays major role in our decisions. We could make corrective thinking based on some memory references. Its like determining a best route in worst cases if we already have a basic map in our memory, or recollection some old memories for approximation and matching some patterns. In our example, we've got some Malayalam text. Before presenting it to the user, we must do some memory aided crosschecks, " *Have I heard this word ever before ? If so, what's that smallest correction required to make this result to match my memory ?* " **Remember this, a 'Replace', 'insert', or a 'delete' operation on minimum number of characters** will help us to accomplish this task. This is the technique behind almost every spell checker algorithms. We could specify these minimum edits limit and if the correction lies within these minimum edits... You know.. give the user the word fom memory, else, let your confidence shine !
 
-### here's how my conceptual data looks like:
-...samayamaa-Mസ്മയമാ|
-Svarnnamaa-സ്വർണ്ണമാ|
-Dhaarmikamo-ധാർമികമോ|
-Kaanyatthe-കാണ്യത്തെ|
-Thurannile-തുറന്നിലെ...
+![architecture](https://cloud.githubusercontent.com/assets/19545678/15669807/c5af6d38-273f-11e6-8b45-9b5a0f7dcc82.jpg)
 
-### fere's how my actual data looks like: (UNICODE to ASCII)
-...samayamaa-M¸Í®¯®¾|
-Svarnnamaa-¸Íµü£Í£®¾|
-Dhaarmikamo-§¾ü®¿•®Ë|
-Kaanyatthe-•¾£Í¯¤Í¤Æ|
-Thurannile-¤Á±¨Í¨¿²Æ...
+## not over, we need a continuous training phase
+After passing an input through these three layers, we're placing it to the outside environment with some confidence level and we're waiting for a response. We will either get a fail response along with the correction or we will get a success response. In case of fail, we will be using this new information to modify the weights values in layer 1 and 2 and to adding it to memory if its a new entry to the system.
 
-Later I've replaced Varnam corpus with a long stiched pack malayalam books in a single .txt file [ books were available online as .txt and .epub files - .epub to .txt converter helped me for that :) ]. I've trained my network on a workstation with Nvidia GPU (approx. 2000 cores) for two+ days, and was not able to complete and optimize much due to deadline for project submission. I've started using it and whoa, it worked nice even with ignorable errors.
+**NOTES:**
 
-**foot note:** 
+- **Layer 1** : we could use a '[trie](https://www.youtube.com/watch?v=NKr6gWcXkIM) datastructure' or a 'python [dictionary](http://www.tutorialspoint.com/python/python_dictionary.htm)'. I've mentioned only manual method for rule generation, we could make use of decition trees to automatically adapt and modify the rules, training data should be designed to cover all the possibilities in this case. This layer can also be replaced with other existing '**G2P** methodologies' like using '[Weighted Finite State Transducers](https://en.wikipedia.org/wiki/Finite_state_transducer)' or '**Recurrent Neural Networks**' *( I'm trying to extend my mini project as my major using RNNs, just started working on it, let me se if I could blog events alongside with it )*.
+- **Layer 2** : uses an **n-gram** model in my implementation. '**2-grams**' best worked for me. Another yet better alternative is to use '**Recurrent NNs**'.
+- **Layer 3** : implemented with [symspell](https://github.com/wolfgarbe/symspell) spell checker *( according to developers which is very much faster )* For commercial application, a stemmer is necessory, otherwise your database will be flooded.
+- **Training data** : I've struggled a lot, there's no corpus for malayalam transliteration. So, I've used a rule based automation algorithm to generate test cases, so I needed to enter the english letters as it is produced by the algorithm for testing. *( good news is, for 50+% cases, the system managed to give better results even if the rule is not followed )*.
+- **Major problem** : I works out of the box for very common words, but, for very specific inputs *( whose characters are very uncommon, or insufficient )* system fails in prediction and produces very bad results.
+- **Existing Commercial systems** : 'Google input tools' , 'Varnam free'.
+- **Summary representation** :
 
-- deep learning? ask yourself, **Do I have a big pile of data?**
 
-- synthesised data mixed with real data could help a lot in deep learning.
-
-- My LSTM is a modified version of Andrej Karpathy's torch implementation (I personally like torch, its faster than other python libraries), thus for coding, it took only three or four days including the character mapping stuff.
-
-- funny thing is, It took one 3+ weeks to play with different data formats and network parameters. [ like, God created a radio in 3 seconds and took 3 days to tune a station ]
-
-*but most of my final sem's spent on these,*
-
-- it took 2+ week to Google, where to find malayalam data and related tools :(
-
-- it took 2+ months, first to complete andrew Ng's machine learning course, Nando de freita's Deep learning course and to learn and practice deep learning  concepts through torch examples.
+![idea](https://cloud.githubusercontent.com/assets/19545678/15669806/c5a8fd22-273f-11e6-90d7-1b84b7340231.jpg)
