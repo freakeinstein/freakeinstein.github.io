@@ -1,4 +1,8 @@
-#malayalam transliteration using LSTM
+---
+layout: post
+title: Breaking down 'language transliteration' ( phonetic translation ) Project ( LSTM version )
+---
+
 
 [being busy, figures coming soon]
 
