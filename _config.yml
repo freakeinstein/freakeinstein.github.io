@@ -1,24 +1,24 @@
 # Site settings
-title:       Pixyll
-email:       your_email@example.com
-author:      John Otander
-description: "A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff."
+title:       Freakeinstein
+email:       
+author:      Jubin Jose
+description: "Probably premitive"
 baseurl:     ""
-url:         "http://pixyll.com"
+url:         "http://freakeinstein.github.io"
 date_format: "%b %-d, %Y"
 
 # Google services
-google_verification:
+google_verification: 
 # Use either direct GA implementation or set up GTM account
 # - using both will skew your data (leave blank to not use at all)
-google_analytics:
+google_analytics: UA-78637315-1
 google_tag_manager:
 # Bing services
 bing_verification:
 
 # Optional features
-animated:             false
-show_related_posts:   false
+animated:             true
+show_related_posts:   true
 show_post_footers:    false
 show_social_icons:    false
 ajaxify_contact_form: false
@@ -33,7 +33,7 @@ fb_page_id:
 
 # Disqus post comments
 # (leave blank to disable Disqus)
-disqus_shortname:
+disqus_shortname: httpfreakeinsteingithubio
 
 # Facebook Comments plugin
 # (leave blank to disable Facebook Comments, otherwise set it to true)
