@@ -11,3 +11,20 @@
     anchors.options.visible = 'always';
     anchors.add('article h2, article h3, article h4, article h5, article h6');
 </script>{% endif %}
+<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.9/cookieconsent.min.js"></script>
+<script type="text/javascript">
+        // <![CDATA[
+        cc.initialise({
+            cookies: {
+                social: {},
+                analytics: {},
+                advertising: {},
+                necessary: {}
+            },
+            settings: {
+                consenttype: "implicit"
+            }
+        });
+        // ]]>
+    </script>
+
