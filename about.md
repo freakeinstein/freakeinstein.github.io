@@ -1,20 +1,32 @@
 ---
 layout: page
-title: About Pixyll
+title: About
 permalink: /about/
 tags: about
 ---
 
-This Jekyll theme was crafted with <3 by [John Otander](http://johnotander.com)
-([@4lpine](https://twitter.com/4lpine)).
+Dedicated to my Dad, who taught me, 'the need to gain & share Knowledge'.
 
-Checkout the [Github repository](https://github.com/johnotander/pixyll) to download it,
-request a feature, report a bug, or contribute. It's free, and open source
-([MIT](http://opensource.org/licenses/MIT)).
+Special thanks to Vijesh, who suggested this blog name.
 
-Thanks to the following:
 
-* [BASSCSS](http://basscss.com)
-* [Jekyll](http://jekyllrb.com)
-* [Refills](http://refills.bourbon.io/)
-* [Type Scale](http://type-scale.com/)
+**Me,** 
+
+![propic](https://cloud.githubusercontent.com/assets/19545678/16712445/33bcefba-46a5-11e6-877d-2a5533cb84eb.jpg)
+
+Name is, Jubin Jose 
+
+Master of Computer Applications (MCA) student @ [College of Engineering Trivandrum, Kerala](http://www.cet.ac.in).
+ 
+[Programmer + Artist](https://youtu.be/8LdwhOEwMiU?list=PLpRfNIvlwqr895ZBuLEfQ6IISN38W4_Bm).
+ 
+[Plan B](http://yesitsplanb.tumblr.com) leading member 
+ 
+Machine Learning enthusiast.
+
+Read my [CV](https://github.com/freakeinstein/freakeinstein.github.io/files/327786/Jubin.Jose.Resume.EA.pdf).
+
+Download full blog content / posts as markdown files [here](https://github.com/freakeinstein/freakeinstein.github.io/tree/master/_posts).
+
+---
+ © 2016 created with ♥.    
