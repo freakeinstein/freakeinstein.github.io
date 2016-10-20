@@ -3,7 +3,7 @@ layout: post
 title: Q learning flappy bird game demystified (part 1)
 ---
 
-let's place our first babysteps into reinforcement learning. I think, this one will be th very first part of a total of three parts series. In this series of posts, I would like to cover Qlearning in reinforcement learning, starting from its pure implementation, through neural network based modification and finally adding computer vision facilities to finalize our game playing system.
+Let's place our first babysteps into reinforcement learning. I think, this one will be the very first part of a total of three parts series. In this series of posts, I would like to cover Q learning in reinforcement learning, starting from its pure implementation, through neural network based modification and finally adding computer vision facilities to our game playing system.
 
 ### What we are going to do:
 We will be using a popular game "flappy bird" for the demonstration purpose. In this article, we will discuss the essential information needed to code pure Q learning algorithm, which requires connection wires to access game data. We will create an independent version (computer vision based) of Q learnng in the later sections.
@@ -29,13 +29,13 @@ RL algorithm is simple, right? We could add any logical sub steps to our algorit
 
 **thought process:** 
 
-- How do we select an action from a set of actions? hmm.. We know in any selection process, if we somehow score each candidate, we've got a justification method for selection.
-- We also know that, the action selection is dependent on current state, so that, for each state we will have same set of actions with different score values.
-- We have scores related to actions. We could select the action in different ways, depending on the problem we're trying to solve. Like, calculating probability distribution over actions { (score of ith action)/(score of all actions) }, complex probability functions like this ![salsa](http://www.cs.indiana.edu/~gasser/Salsa/Figs/exploit.gif), or simply choosing the action with highest value :) .
+- how do we select an action from a set of actions? hmm.. We know that, in any selection process, if we could somehow assign scores to each candidate, we've got a justifying method for selection.
+- we also know that, the action selection is dependent on current state, so that, for each state we will have same set of actions with different score values.
+- now that we have got scores related to actions. We could select an action in different ways, depending on the problem we're trying to solve. Like, calculating probability distribution over actions { (score of ith action)/(score of all actions) }, complex probability functions like this ![salsa](http://www.cs.indiana.edu/~gasser/Salsa/Figs/exploit.gif), or simply choosing the action with highest value :) .
 
 **data structures:**
 
-- If we keep these scores in memory, we could reuse them (it will be used in step 2). It will be cool if we could access them as multi dimensional arrays, like `QScore[states][actions]`. 
+- if we keep these scores in memory, we could reuse them (it will be used in step 2). It will be cool if we could access them as multi dimensional arrays, like `QScore[states][actions]`. 
 
 **solution:**
 
@@ -52,11 +52,13 @@ RL algorithm is simple, right? We could add any logical sub steps to our algorit
 
 - same as above.
 
+---
+
 ### Deriving update equation for Q learning:
 
 - We would like to teach our agent through reinforcements  to tackle different situations in the environment. Because of that, we want those reinforcements affect the new score calculations. The agent's entire action is purely based on those scores. Let's say that `Qnew` is our new score. Then we could say that, `Qnew = reinforcement`. Okey, that will work because, the agent looks for the maximum score value among available actions, since we will be giving a positive number as the reward and a big negative number as punishment, agent will choose the action with positive value which already succeded.
 
-- This doesn't stop here. We want our agent to be future concious. It must take current actions with future advandages in mind. For the previous case the agent is blind. It only acts based on last experiance only, and will only look for local advandages. As an example, consider our agent as an ant. It should consider exploring the world for better food resources than being localized to get limited bad food. SO, what should be our modification? we will look at one step further, to see advandages if we took an action. Mathematically, we wanted to add the maximum score available in the next state if the agent decides to take an action. ie, `Qnew = reinforcement + Max. future score available in the new state`. We want to be more flexible on our agent. Depending on the problem we're dealing with, we want to place a control over this forseeing capacity of agents. Its not a good approach to give same capabilities to every creature in the world we're creating. so we will introduce a `discount paramater` to control future foreseeing capability of that agent. then, `Qnew = reinforcement + (discount) * (Max. future score available in the new state)`. Value of discount varies between `0 <-> 1`. 
+- This doesn't stop here. We want our agent to be future concious. It must take current actions with future advandages in mind. In the previous case, the agent is blind. It only acts based on last experiance only, and will only look for local advandages. As an example, consider our agent as an ant. It should consider exploring the world for better food resources than being localized to get limited bad food. So, what should be our modification? we will look at one step further, to see advandages, if we took an action. Mathematically, we wanted to add the maximum score available in the next state if the agent decides to take an action. ie, `Qnew = reinforcement + Max. future score available in the new state`. We want to be more flexible on our agent. Depending on the problem we're dealing with, we want to place a control over this foreseeing capacity of agents. Its not a good approach to give same capabilities to every creature in the world we're creating. so we will introduce a `discount paramater` to control future foreseeing capability of that agent. then, `Qnew = reinforcement + (discount) * (Max. future score available in the new state)`. Value of discount varies between `0 <-> 1`. 
 
 - Wow.. our equation is getting better and better. Now what? Yes.. we want our agent be less error prone. There may be situations of uncertainities including, agent's perception errors (like misinterpretations of input senses of the agents), special cases in the environments (since the agent is in learning state, it should be able to differentiate special cases) etc. So what we need our agent to do is, keep old information that learned so far with the new ones. We could modify our old equation as, `Qnew = [Qold] + [reinforcement + (discount) * (Max. future score available in the new state)]`.
 
@@ -71,19 +73,20 @@ Since we've explained almost everything, I think I should provide only specifics
  
  find the processing sketch in github: [source code](https://github.com/freakeinstein/flappy-bird-processing-arduino-sketch)
  
- **States:** This is the trickiest part. This is not my idea. I've got this from the internet. For a flappy bird, the only requirement is to be in the air and jump over the pipes. Whatever the pipe's height, the bird should be worrying about its alignment with the pipe's tip. We could represent it with two variables, `width` (current horizontal distance from the pipe's tip) and `height` (current vertical distance from the pipe's tip). Thus we could say that, *whatever may be the pipe's height, each state is a relative position from the immediate pipe's tip*. Thus, the states (relative positions) near to the pipes will help the bird to jump over the tip whereas, far away states could help the bird to stay alive and keep an average height, always.
+ **States:** This is the trickiest part. This is not my idea. I've got this from the internet. For a flappy bird, the only requirement is to be in the air and jump over the pipes. Whatever the pipe's height, the bird should be worrying about its alignment with the pipe's tip. We could represent it with two variables, `width` (current horizontal distance from the pipe's tip) and `height` (current vertical distance from the pipe's tip). Thus we could say that, *whatever may be the pipe's height, each state is a relative position from the immediate pipe's tip*. Thus, the states (relative positions) near to the pipes will help the bird to jump over the tip; whereas, far away states could help the bird to stay alive and keep an average height, always.
  ![flapp](https://cloud.githubusercontent.com/assets/19545678/19556794/729255f0-96e0-11e6-9290-7c934e6053bd.jpg)
 
 **Actions:** `jump` or `no jump`.
 
 **Reinforcements:**
 
-- for each action, chech whether the bird is alive, if so, reward positive value, a large negative value otherwise, this is to teach the death traps to the bird.
+- for each action, chech whether the bird is alive, if so, reward positive value, a large negative value, otherwise; this is to teach the death traps to the bird.
 - if the bird crosses the pipe, reward it with relatively big positive value, this is to teach the bird, how to score.
 - give a small negative reward for each jump as energy wastage, and small positive value for free fall (no jump) as energy gains. This is to encourage the bird to jump only if it is necessory.
 
 #### future parts
 
 In the furute parts we will look at 
+
 - a way to replace the QMatrix with feed forward neural networks (part 2) [currently working on it].
 - a way to introduce computer vision to play by looking, using convolutional neural networks (part 3).
