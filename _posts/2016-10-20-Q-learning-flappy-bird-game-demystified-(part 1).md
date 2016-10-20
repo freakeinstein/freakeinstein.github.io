@@ -65,8 +65,12 @@ RL algorithm is simple, right? We could add any logical sub steps to our algorit
 We're good. Whoo.. its over. For more information, you could hang in [here](http://www.cs.indiana.edu/~gasser/Salsa/rl.html).
 
 ### example problem - a self playing flappy bird game
-Since we've explained almost everything, I think I should provide only specifics to break this problem down. Here's an example I've did in processing.
+Since we've explained almost everything, I think I should provide only specifics to break this problem down. Here's an example I've did in processing:
+
  <iframe width="854" height="480" src="https://www.youtube.com/embed/QggzjNfBKlY" frameborder="0" allowfullscreen></iframe>
+ 
+ find the processing sketch in github: [source code](https://github.com/freakeinstein/flappy-bird-processing-arduino-sketch)
+ 
  **States:** This is the trickiest part. This is not my idea. I've got this from the internet. For a flappy bird, the only requirement is to be in the air and jump over the pipes. Whatever the pipe's height, the bird should be worrying about its alignment with the pipe's tip. We could represent it with two variables, `width` (current horizontal distance from the pipe's tip) and `height` (current vertical distance from the pipe's tip). Thus we could say that, *whatever may be the pipe's height, each state is a relative position from the immediate pipe's tip*. Thus, the states (relative positions) near to the pipes will help the bird to jump over the tip whereas, far away states could help the bird to stay alive and keep an average height, always.
  ![flapp](https://cloud.githubusercontent.com/assets/19545678/19556794/729255f0-96e0-11e6-9290-7c934e6053bd.jpg)
 
