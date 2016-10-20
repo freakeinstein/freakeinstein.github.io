@@ -86,7 +86,7 @@ Since we've explained almost everything, I think I should provide only specifics
 
 #### future parts
 
-In the furute parts we will look at 
+In the future parts we will look at 
 
 - a way to replace the QMatrix with feed forward neural networks (part 2) [currently working on it].
 - a way to introduce computer vision to play by looking, using convolutional neural networks (part 3).
